@@ -8,12 +8,18 @@
 
 import SwiftUI
 
-struct ContentView: View {
+// ScrollIssue
+// https://stackoverflow.com/questions/57700396/adding-a-drag-gesture-in-swiftui-to-a-view-inside-a-scrollview-blocks-the-scroll
 
+struct ContentView: View {
     @State private var selectedSegment: Int = 0
+
     @State private var offsetX: CGFloat = 0
+    @State private var oldOffsetX: CGFloat = 0
+
     @State private var contentOffsetX: CGFloat = 0
     @State private var oldContentOffsetX: CGFloat = 0
+
     @State private var dragStartTime: Date?
 
     public var highlightingColor: Color = Color.green
@@ -48,6 +54,7 @@ struct ContentView: View {
             .frame(width: self.calculateWidth(), height: 300)
         }
         .offset(x: contentOffsetX)
+        .onTapGesture {}
         .gesture(
             DragGesture(minimumDistance: 1)
                 .onChanged({ value in
@@ -56,8 +63,10 @@ struct ContentView: View {
                     }
                     if (value.translation.width > 0 && self.selectedSegment == 0) || (value.translation.width < 0 && self.selectedSegment == 2) {
                         self.contentOffsetX = self.oldContentOffsetX + value.translation.width / 2
+                        self.offsetX = self.oldOffsetX - value.translation.width / 3 / 2
                     } else {
                         self.contentOffsetX = self.oldContentOffsetX + value.translation.width
+                        self.offsetX = self.oldOffsetX - value.translation.width / 3
                     }
 
                 })
@@ -146,7 +155,6 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 HStack(spacing: 0) {
-
                     self.highlightingColor
                         .frame(width: calculateWidth() / 3)
                         .offset(x: self.offsetX, y: 0)
@@ -170,18 +178,17 @@ struct ContentView: View {
             self.offsetX = -self.calculateWidth() / 3
             self.selectedSegment = 0
             self.contentOffsetX = screenWidth
-            self.oldContentOffsetX = screenWidth
         } else if selectedSegment == 1 {
             self.offsetX = 0
             self.selectedSegment = 1
             self.contentOffsetX = 0
-            self.oldContentOffsetX = 0
         } else {
             self.offsetX = self.calculateWidth() / 3
             self.selectedSegment = 2
             self.contentOffsetX = -screenWidth
-            self.oldContentOffsetX = -screenWidth
         }
+        self.oldOffsetX = self.offsetX
+        self.oldContentOffsetX = self.contentOffsetX
     }
 }
 
@@ -192,7 +199,6 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 public extension Date {
-
     var millisecondsSince1970: Int64 {
         return timeIntervalSince1970.milliseconds
     }
@@ -203,7 +209,6 @@ public extension Date {
 }
 
 public extension TimeInterval {
-
     var milliseconds: Int64 {
         return Int64((self * 1000.0).rounded())
     }

@@ -13,7 +13,6 @@
 		F8136F272461FA800096F5D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8136F262461FA800096F5D3 /* Assets.xcassets */; };
 		F8136F2A2461FA800096F5D3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8136F292461FA800096F5D3 /* Preview Assets.xcassets */; };
 		F8136F2D2461FA800096F5D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8136F2B2461FA800096F5D3 /* LaunchScreen.storyboard */; };
-		F8136F352462096D0096F5D3 /* ScrollViewTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8136F342462096D0096F5D3 /* ScrollViewTestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +24,6 @@
 		F8136F292461FA800096F5D3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F8136F2C2461FA800096F5D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8136F2E2461FA800096F5D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8136F342462096D0096F5D3 /* ScrollViewTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewTestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +63,6 @@
 				F8136F2B2461FA800096F5D3 /* LaunchScreen.storyboard */,
 				F8136F2E2461FA800096F5D3 /* Info.plist */,
 				F8136F282461FA800096F5D3 /* Preview Content */,
-				F8136F342462096D0096F5D3 /* ScrollViewTestView.swift */,
 			);
 			path = CustomSegmentedControl;
 			sourceTree = "<group>";
@@ -149,7 +146,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8136F352462096D0096F5D3 /* ScrollViewTestView.swift in Sources */,
 				F8136F212461FA7F0096F5D3 /* AppDelegate.swift in Sources */,
 				F8136F232461FA7F0096F5D3 /* SceneDelegate.swift in Sources */,
 				F8136F252461FA7F0096F5D3 /* ContentView.swift in Sources */,
